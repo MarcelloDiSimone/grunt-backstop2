@@ -1,0 +1,45 @@
+{
+  "name": "grunt-backstop2",
+  "description": "Grunt plugin for running backstop 2 regression tests",
+  "version": "0.1.0",
+  "homepage": "https://github.com/m.disimone/grunt-backstop2",
+  "author": {
+    "name": "Marcello di Simone",
+    "email": "m.disimone@xplosion.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/m.disimone/grunt-backstop2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/m.disimone/grunt-backstop2/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/m.disimone/grunt-backstop2/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-nodeunit": "^1.0.0",
+    "grunt": "~1.0.1"
+  },
+  "peerDependencies": {
+    "grunt": "~1.0.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "backstopjs": "^2.3.5",
+    "tmp-promise": "^1.0.3"
+  }
+}
