@@ -66,9 +66,9 @@ module.exports = function (grunt) {
     options = this.options(OPTIONS_DEFAULT, configFile, this.data);
 
     switch (versionType) {
-      case 'backstop2-test':
-        grunt.verbose.log('Running the backstopjs test task');
-        action = 'test';
+      case 'backstop2-reference':
+        grunt.verbose.log('Running the backstopjs reference task');
+        action = 'reference';
         break;
       case 'backstop2-openReport':
         grunt.verbose.log('Running the backstopjs openReport task');
@@ -78,11 +78,11 @@ module.exports = function (grunt) {
         grunt.verbose.log('Running the backstopjs genConfig task');
         action = 'genConfig';
         break;
-      case 'backstop2-reference':
+      case 'backstop2-test':
         /* falls through */
       default:
-        grunt.verbose.log('Running the backstopjs reference task');
-        action = 'reference';
+        grunt.verbose.log('Running the backstopjs test task');
+        action = 'test';
     }
 
     tmp.file({postfix: '.json'}, (err, path, fd, cleanupCallback) => {
