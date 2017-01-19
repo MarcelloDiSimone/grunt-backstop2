@@ -37,11 +37,11 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.configPath
 Type: `String`
 Default value: `',  '`
 
-A string value that is used to do something with whatever.
+Path to the backstop.json or backstop.js configuration file. Will be used as output path when running genConfig.
 
 #### options.punctuation
 Type: `String`
@@ -58,8 +58,8 @@ In this example, the default options are used to do something with whatever. So 
 grunt.initConfig({
   backstop2: {
     options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    myTask: {
+      configPath: './backstop.json'
     },
   },
 });
@@ -72,11 +72,13 @@ In this example, custom options are used to do something else with whatever else
 grunt.initConfig({
   backstop2: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      'report': ['browser'],
     },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    development: {
+      configPath: './backstop.dev.json'
+    }
+    staging: {
+      'report': ['CLI'],
     },
   },
 });
