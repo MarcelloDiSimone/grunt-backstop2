@@ -51,7 +51,7 @@ const DESC = 'Running regression tests with backstopjs v.2';
 
 module.exports = function (grunt) {
 
-  grunt.registerTask('backstop2', DESC, function (versionType) {
+  grunt.registerMultiTask('backstop2', DESC, function (versionType) {
     let action = 'reference',
         done = this.async(),
         options,
