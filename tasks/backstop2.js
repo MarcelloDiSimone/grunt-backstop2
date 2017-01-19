@@ -59,7 +59,7 @@ module.exports = function (grunt) {
         configFile = {};
 
     if (configFilePath && grunt.file.isFile(configFilePath)) {
-      grunt.verbose.log('Loading the backstop configuration file');
+      grunt.verbose.writeln('Loading the backstop configuration file');
       configFile = require(configFilePath);
     }
 
@@ -67,21 +67,21 @@ module.exports = function (grunt) {
 
     switch (versionType) {
       case 'backstop2-reference':
-        grunt.verbose.log('Running the backstopjs reference task');
+        grunt.verbose.writeln('Running the backstopjs reference task');
         action = 'reference';
         break;
       case 'backstop2-openReport':
-        grunt.verbose.log('Running the backstopjs openReport task');
+        grunt.verbose.writeln('Running the backstopjs openReport task');
         action = 'openReport';
         break;
       case 'backstop2-genConfig':
-        grunt.verbose.log('Running the backstopjs genConfig task');
+        grunt.verbose.writeln('Running the backstopjs genConfig task');
         action = 'genConfig';
         break;
       case 'backstop2-test':
         /* falls through */
       default:
-        grunt.verbose.log('Running the backstopjs test task');
+        grunt.verbose.writeln('Running the backstopjs test task');
         action = 'test';
     }
 
@@ -98,7 +98,7 @@ module.exports = function (grunt) {
               grunt.fatal(err);
             })
             .then(() => {
-              grunt.verbose.log('Cleanup and finish');
+              grunt.verbose.writeln('Cleanup and finish');
               cleanupCallback();
               done();
             });
