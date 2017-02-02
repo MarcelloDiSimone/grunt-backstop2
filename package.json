@@ -1,7 +1,7 @@
 {
   "name": "grunt-backstopjs",
   "description": "Grunt plugin for running backstop 2 regression tests",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/m.disimone/grunt-backstopjs",
   "author": {
     "name": "Marcello di Simone",
