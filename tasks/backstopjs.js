@@ -1,6 +1,6 @@
 /*
- * grunt-backstop2
- * https://github.com/m.disimone/grunt-backstop2
+ * grunt-backstopjs
+ * https://github.com/m.disimone/grunt-backstopjs
  *
  * Copyright (c) 2016 Marcello di Simone
  * Licensed under the MIT license.
@@ -48,11 +48,13 @@ const OPTIONS_DEFAULT = {
   "debug": false
 };
 const DESC = 'Running regression tests with backstopjs v.2';
+const availableActions = ['reference', 'openReport', 'genConfig', 'test'];
 
 module.exports = function (grunt) {
 
-  grunt.registerMultiTask('backstop2', DESC, function (versionType) {
-    let action = 'reference',
+  grunt.registerMultiTask('backstopjs', DESC, function () {
+    let versionType = this.args.shift(),
+        action = (availableActions.indexOf(versionType) !== -1) ? versionType:'test',
         done = this.async(),
         options,
         configFilePath = path.resolve(this.data.options.configPath),
@@ -64,26 +66,8 @@ module.exports = function (grunt) {
     }
 
     options = this.options(OPTIONS_DEFAULT, configFile, this.data);
-
-    switch (versionType) {
-      case 'backstop2-reference':
-        grunt.verbose.writeln('Running the backstopjs reference task');
-        action = 'reference';
-        break;
-      case 'backstop2-openReport':
-        grunt.verbose.writeln('Running the backstopjs openReport task');
-        action = 'openReport';
-        break;
-      case 'backstop2-genConfig':
-        grunt.verbose.writeln('Running the backstopjs genConfig task');
-        action = 'genConfig';
-        break;
-      case 'backstop2-test':
-        /* falls through */
-      default:
-        grunt.verbose.writeln('Running the backstopjs test task');
-        action = 'test';
-    }
+    delete options.options;
+    delete options.configPath;
 
     tmp.file({postfix: '.json'}, (err, path, fd, cleanupCallback) => {
       if (err) {
@@ -99,26 +83,10 @@ module.exports = function (grunt) {
             })
             .then(() => {
               grunt.verbose.writeln('Cleanup and finish');
-              cleanupCallback();
+              // cleanupCallback();
               done();
             });
       });
     });
-  });
-
-  grunt.registerTask('backstop2-reference', DESC, function (versionType) {
-    grunt.task.run('backstop2:' + (versionType || '') + ':backstop2-reference');
-  });
-
-  grunt.registerTask('backstop2-test', DESC, function (versionType) {
-    grunt.task.run('backstop2:' + (versionType || '') + ':backstop2-test');
-  });
-
-  grunt.registerTask('backstop2-openReport', DESC, function (versionType) {
-    grunt.task.run('backstop2:' + (versionType || '') + ':backstop2-openReport');
-  });
-
-  grunt.registerTask('backstop2-genConfig', DESC, function (versionType) {
-    grunt.task.run('backstop2:' + (versionType || '') + ':backstop2-genConfig');
   });
 };

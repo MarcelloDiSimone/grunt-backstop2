@@ -1,0 +1,38 @@
+{
+  "id": "xpl-bnr-framework",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "homepage",
+      "url": "http://127.0.0.1:9000/multibanner.html",
+      "selectors": [
+        ".bnr"
+      ],
+      "selectorExpansion": true,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "readyEvent": null,
+      "delay": 500,
+      "misMatchThreshold" : 0.1
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "test/results/bitmaps_reference",
+    "bitmaps_test": "test/results/bitmaps_test",
+    "casper_scripts": "test/results/casper_scripts",
+    "html_report": "test/results/html_report",
+    "ci_report": "test/results/ci_report"
+  },
+  "casperFlags": [],
+  "engine": "phantomjs",
+  "report": [
+    "browser"
+  ],
+  "debug": false
+}

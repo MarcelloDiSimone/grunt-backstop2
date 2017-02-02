@@ -22,7 +22,7 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-exports.backstop2 = {
+exports.backstopjs = {
   setUp: function(done) {
     // setup here if necessary
     done();

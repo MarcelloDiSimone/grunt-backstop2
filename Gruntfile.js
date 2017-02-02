@@ -1,6 +1,6 @@
 /*
- * grunt-backstop2
- * https://github.com/m.disimone/grunt-backstop2
+ * grunt-backstopjs
+ * https://github.com/m.disimone/grunt-backstopjs
  *
  * Copyright (c) 2016 Marcello di Simone
  * Licensed under the MIT license.
@@ -29,21 +29,12 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    backstop2: {
-      "id": "backstop_prod_test",
-      "viewports": [],
-      "scenarios": [],
-      "paths": {
-        "bitmaps_reference": "backstop_data/bitmaps_reference",
-        "bitmaps_test": "backstop_data/bitmaps_test",
-        "casper_scripts": "backstop_data/casper_scripts",
-        "html_report": "backstop_data/html_report",
-        "ci_report": "backstop_data/ci_report"
-      },
-      "casperFlags": [],
-      "engine": "phantomjs",
-      "report": ["browser"],
-      "debug": false
+    backstopjs: {
+      default: {
+        options: {
+          configPath: 'test/configs/backstop.json'
+        }
+      }
     },
 
     bump: {
@@ -84,7 +75,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'backstop2', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'backstopjs', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
