@@ -4,8 +4,7 @@
   "version": "0.1.4",
   "homepage": "https://github.com/m.disimone/grunt-backstopjs",
   "author": {
-    "name": "Marcello di Simone",
-    "email": "m.disimone@xplosion.de"
+    "name": "Marcello di Simone"
   },
   "repository": {
     "type": "git",
@@ -29,7 +28,7 @@
   "devDependencies": {
     "grunt": "~1.0.1",
     "grunt-bump": "^0.8.0",
-    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-nodeunit": "^1.0.0"
   },
@@ -40,7 +39,7 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "backstopjs": "^2.3.5",
-    "tmp": "0.0.31"
+    "backstopjs": "^3.0.18",
+    "tmp": "0.0.33"
   }
 }
